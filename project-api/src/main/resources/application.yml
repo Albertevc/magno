@@ -1,0 +1,34 @@
+server:
+  port: 8081
+logging:
+  level:
+    root: ${ROOT_LOGGING_LEVEL:info}
+#info:
+#  app:
+#    name: @project.name@
+#    description: @project.description@
+#    version: @project.version@
+#    encoding: @project.build.sourceEncoding@
+#    java:
+#      version: @java.version@
+spring:
+  application:
+    name: project-api
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/magno
+    username: root
+    password: root
+
+  jpa:
+    #hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
